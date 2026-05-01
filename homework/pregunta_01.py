@@ -44,7 +44,7 @@ def pregunta_01():
     df["monto_del_credito"] = df["monto_del_credito"].astype(int)
 
     # Normalize fecha_de_beneficio to DD/MM/YYYY (handles DD/MM/YYYY and YYYY/MM/DD)
-    df["fecha_de_beneficio"] = pd.to_datetime(df["fecha_de_beneficio"], dayfirst=True)
+    df["fecha_de_beneficio"] = pd.to_datetime(df["fecha_de_beneficio"], format="mixed", dayfirst=True)
     df["fecha_de_beneficio"] = df["fecha_de_beneficio"].dt.strftime("%d/%m/%Y")
 
     # Strip whitespace from estrato (preserves "02" as distinct from "2")
